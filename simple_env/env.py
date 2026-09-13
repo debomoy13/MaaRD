@@ -5,8 +5,15 @@ class simple_env:
         self.target_pos = [10,10]
 
     def reset(self):
-        self.agent_pos=[0,0]
-        return self.agent_pos
+        self.agent_pos[0,0]
+        observation=[
+        self.agent_pos[0],
+        self.agent_pos[1],
+        self.target_pos[0],
+        self.target_pos[1]
+        ]
+
+        return observation
     def step(self,action):
         if action==1:  #move up
             self.agent_pos[1]+=1
@@ -22,7 +29,13 @@ class simple_env:
         if self.agent_pos==self.target_pos:
             reward=100 
             success=True
-        return self.agent_pos,reward,success
+            observation = [
+            self.agent_pos[0],
+            self.agent_pos[1],
+            self.target_pos[0],
+            self.target_pos[1]
+        ]
+        return observation,self.agent_pos,reward,success
     def render(self):
         for x in range(self.grid_size):
             row=""

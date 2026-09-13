@@ -24,6 +24,6 @@ print("Move right")
 state,reward,done=env.step(3)
 print("State:", state)
 print("Reward:", reward)
-print("Done:", done)
+print("Done:", done) 
 
 env.render()
